@@ -14,7 +14,7 @@
 	dsi_dual_jdi_4k_nofbc_video: qcom,dsi_jdi_4k_nofbc_video {
 		qcom,mdss-dsi-panel-name = "JDI 4K no FBC Dual video mode dsi panel";
 		qcom,mdss-dsi-panel-type = "dsi_video_mode";
-		qcom,mdss-dsi-panel-framerate = <45>;
+		qcom,mdss-dsi-panel-framerate = <40>;
 		qcom,mdss-dsi-virtual-channel-id = <0>;
 		qcom,mdss-dsi-stream = <0>;
 		qcom,mdss-dsi-panel-width = <1920>;
