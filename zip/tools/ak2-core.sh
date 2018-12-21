@@ -86,7 +86,7 @@ split_boot() {
   if [ $? != 0 -o "$dumpfail" ]; then
     ui_print " "; ui_print "Dumping/splitting image failed. Aborting..."; exit 1;
   fi;
-    if [ -f "$bin/unpackelf" -a -f "$split_img/boot.img-dtb" ]; then
+  if [ -f "$bin/unpackelf" -a -f "$split_img/boot.img-dtb" ]; then
     case $(od -ta -An -N4 $split_img/boot.img-dtb | sed -e 's/del //' -e 's/   //g') in
       QCDT|ELF) ;;
       *) gzip $split_img/boot.img-zImage;
@@ -195,7 +195,7 @@ flash_boot() {
   else
     if [ -f *-cmdline ]; then
       cmdline=`cat *-cmdline`;
-            cmd="$split_img/boot.img-cmdline@cmdline";
+      cmd="$split_img/boot.img-cmdline@cmdline";
     fi;
     if [ -f *-board ]; then
       board=`cat *-board`;
@@ -298,7 +298,7 @@ flash_boot() {
     case $block in
       *recovery*|*SOS*) avbtype=recovery;;
       *) avbtype=boot;;
-          esac;
+    esac;
     if [ "$(/system/bin/dalvikvm -Xbootclasspath:/system/framework/core-oj.jar:/system/framework/core-libart.jar:/system/framework/conscrypt.jar:/system/framework/bouncycastle.jar -Xnodex2oat -Xnoimage-dex2oat -cp $bin/BootSignature_Android.jar com.android.verity.BootSignature -verify boot.img 2>&1 | grep VALID)" ]; then
       /system/bin/dalvikvm -Xbootclasspath:/system/framework/core-oj.jar:/system/framework/core-libart.jar:/system/framework/conscrypt.jar:/system/framework/bouncycastle.jar -Xnodex2oat -Xnoimage-dex2oat -cp $bin/BootSignature_Android.jar com.android.verity.BootSignature /$avbtype boot-new.img $pk8 $cert boot-new-signed.img;
       if [ $? != 0 ]; then
@@ -398,7 +398,7 @@ remove_section() {
     for end in $(grep -n "$endstr" $1 | cut -d: -f1) $last; do
       if [ "$end" ] && [ "$begin" -lt "$end" ]; then
         sed -i "${begin},${end}d" $1;
-                break;
+        break;
       fi;
     done;
   fi;
@@ -498,7 +498,7 @@ patch_cmdline() {
   if [ -z "$(grep "$1" $cmdfile)" ]; then
     cmdtmp=`cat $cmdfile`;
     echo "$cmdtmp $2" > $cmdfile;
-        sed -i -e 's;  *; ;g' -e 's;[ \t]*$;;' $cmdfile;
+    sed -i -e 's;  *; ;g' -e 's;[ \t]*$;;' $cmdfile;
   else
     match=$(grep -o "$1.*$" $cmdfile | cut -d\  -f1);
     sed -i -e "s;${match};${2};" -e 's;  *; ;g' -e 's;[ \t]*$;;' $cmdfile;
@@ -602,3 +602,4 @@ case $block in
 esac;
 
 ## end methods
+
