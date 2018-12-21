@@ -50,6 +50,7 @@
 #include <net/cls_cgroup.h>
 #include <net/dst_metadata.h>
 #include <net/dst.h>
+#include <linux/nospec.h>
 
 /**
  *	sk_filter_trim_cap - run a packet through a socket filter
@@ -765,6 +766,7 @@ static int bpf_check_classic(const struct sock_filter *filter,
 	if (flen == 0 || flen > BPF_MAXINSNS)
 		return -EINVAL;
 
+	flen = array_index_nospec(flen, BPF_MAXINSNS + 1);
 	/* Check the filter code now */
 	for (pc = 0; pc < flen; pc++) {
 		const struct sock_filter *ftest = &filter[pc];
