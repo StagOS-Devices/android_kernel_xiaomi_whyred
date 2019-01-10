@@ -22,8 +22,8 @@ on property:fku.perf.profile=0
 
 # Balance Profile (FK defaults)
 on property:fku.perf.profile=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1612000
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1804000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1843200
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 2208000
     write /sys/class/kgsl/kgsl-3d0/max_gpuclk 430000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -39,8 +39,8 @@ on property:fku.perf.profile=1
 
 # Performance Profile
 on property:fku.perf.profile=2
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1612000
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1804000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1843200
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 2208000
     write /sys/class/kgsl/kgsl-3d0/max_gpuclk 430000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor performance
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
