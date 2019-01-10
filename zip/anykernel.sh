@@ -10,9 +10,9 @@ do.modules=0
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=whyred
-device.name2=
-device.name3=
-device.name4=
+device.name2=whyred-user
+device.name3=Redmi Note 5 Pro
+device.name4=wayne
 device.name5=
 '; } # end properties
 
