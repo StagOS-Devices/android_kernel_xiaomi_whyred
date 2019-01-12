@@ -19,7 +19,7 @@ KERNEL_DIR=$PWD
 REPACK_DIR=$KERNEL_DIR/zip
 OUT=$KERNEL_DIR/out
 ZIP_NAME="$VERSION"-"$DATE"
-VERSION="whyred-1.3-beta7"
+VERSION="whyred-1.3-beta8"
 DATE=$(date +%Y%m%d-%H%M)
 
 export KBUILD_BUILD_USER=WhyredIndo
