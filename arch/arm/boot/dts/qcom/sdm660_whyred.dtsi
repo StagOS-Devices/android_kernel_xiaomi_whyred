@@ -825,10 +825,10 @@
 	qcom,msm-thermal {
 		compatible = "qcom,msm-thermal";
 		qcom,sensor-id = <1>;
-		qcom,poll-ms = <100>;
+		qcom,poll-ms = <1000>;
 		qcom,therm-reset-temp = <115>;
-		qcom,core-limit-temp = <70>;
-		qcom,core-temp-hysteresis = <10>;
+		qcom,core-limit-temp = <85>;
+		qcom,core-temp-hysteresis = <75>;
 		qcom,hotplug-temp = <105>;
 		qcom,hotplug-temp-hysteresis = <20>;
 		qcom,online-hotplug-core;
@@ -839,8 +839,8 @@
 		clock-names = "osm";
 		clocks = <&clock_cpu PWRCL_CLK>;
 		qcom,cxip-lm-enable = <1>;
-		qcom,vdd-restriction-temp = <5>;
-		qcom,vdd-restriction-temp-hysteresis = <10>;
+		qcom,vdd-restriction-temp = <25>;
+		qcom,vdd-restriction-temp-hysteresis = <35>;
 
 		vdd-dig-supply = <&pm660l_s3_floor_level>;
 		vdd-gfx-supply = <&gfx_vreg_corner>;
@@ -894,8 +894,8 @@
 	qcom,msm-core@780000 {
 		compatible = "qcom,apss-core-ea";
 		reg = <0x780000 0x1000>;
-		qcom,low-hyst-temp = <100>;
-		qcom,high-hyst-temp = <100>;
+		qcom,low-hyst-temp = <150>;
+		qcom,high-hyst-temp = <200>;
 
 		ea0: ea0 {
 			sensor = <&sensor_information1>;
