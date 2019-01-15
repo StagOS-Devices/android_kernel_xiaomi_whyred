@@ -3516,7 +3516,7 @@ static int msm_isp_request_frame(struct vfe_device *vfe_dev,
 		frame_src == VFE_PIX_0 &&
 		vfe_dev->axi_data.src_info[frame_src].accept_frame == false) {
 		pr_debug("%s:%d invalid time to request frame %d\n",
-			__func__, __LINE__, frame_id); goto error;
+			__func__, __LINE__, frame_id);
 		goto error;
         }
         if ((vfe_dev->axi_data.src_info[frame_src].active && (frame_id !=
