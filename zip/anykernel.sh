@@ -35,6 +35,11 @@ dump_boot;
 
 # begin ramdisk changes
 
+# Remove CAF Boost Framework cuz CAF is a hoe
+mount -o rw,remount -t auto /vendor >/dev/null; 
+rm -rf /vendor/etc/perf;
+mount -o ro,remount -t auto /vendor >/dev/null;
+
 # init.rc
 insert_line init.rc 'ancient' after 'import /init.\${ro.zygote}.rc' 'import /init.ancient.rc';
 
@@ -53,11 +58,6 @@ if [ -f $compressed_image ]; then
 # Concatenate all of the dtbs to the kernel
   cat $compressed_image /tmp/anykernel/dtbs/*.dtb > /tmp/anykernel/Image.gz-dtb;
 fi;
-
-# Remove CAF Boost Framework cuz CAF is a hoe
-mount -o rw,remount -t auto /vendor >/dev/null; 
-rm -rf /vendor/etc/perf;
-mount -o ro,remount -t auto /vendor >/dev/null;
 
 # end ramdisk changes
 
