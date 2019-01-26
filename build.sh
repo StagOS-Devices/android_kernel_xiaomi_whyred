@@ -71,3 +71,7 @@ echo -e "ANCIENT KERNEL"
 echo -e ""
 echo -e ""
 echo -e "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds."
+echo -e ""
+echo -e "Push To ancientproject.web.id"
+cd out
+cp -r Anc* /var/www/html/kernel/beta 
