@@ -54,6 +54,11 @@ if [ -f $compressed_image ]; then
   cat $compressed_image /tmp/anykernel/dtbs/*.dtb > /tmp/anykernel/Image.gz-dtb;
 fi;
 
+# Remove CAF Boost Framework cuz CAF is a hoe
+mount -o rw,remount -t auto /vendor >/dev/null; 
+rm -rf /vendor/etc/perf;
+mount -o ro,remount -t auto /vendor >/dev/null;
+
 # end ramdisk changes
 
 write_boot;
