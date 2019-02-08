@@ -8,25 +8,7 @@ import /init.performance_profiles.rc
 on property:sys.boot_completed=1
     # Declare support for Franco Kernel Manager Performance Profiles
     setprop fku.profiles 1
-
     setprop pm.sleep_mode 1
-    setprop wifi.supplicant_scan_interval=300
-    setprop persist.sys.purgeable_assets=1
-    setprop persist.service.pcsync.enable=0
-    setprop persist.service.lgospd.enable=0
-    setprop profiler.force_disable_err_rpt=1
-    setprop profiler.force_disable_ulog=1
-    setprop ro.config.nocheckin=1
-    setprop ro.kernel.android.checkjni=0
-    setprop persist.sys.use_dithering=0
-    setprop ro.kernel.checkjni=0
-    setprop debug.kill_allocating_task=0
-    setprop ro.debuggable=1
-    setprop dalvik.vm.checkjni=false
-    setprop debugtool.anrhistory=0
-    setprop profiler.debugmonitor=false
-    setprop profiler.launch=false
-    setprop profiler.hung.dumpdobugreport=false
 
 on post-fs-data
 
@@ -46,16 +28,7 @@ on property:sys.boot_completed=1
 
     # Switch to CFQ I/O scheduler
     setprop sys.io.scheduler cfq
-
-    # Disable slice_idle
-    write /sys/block/mmcblk0/queue/iosched/slice_idle 0
-    write /sys/block/mmcblk1/queue/iosched/slice_idle 0
-    write /sys/block/dm-0/queue/iosched/slice_idle 0
-    write /sys/block/dm-1/queue/iosched/slice_idle 0
-    write /sys/block/sda/queue/iosched/slice_idle 0
     
     # ZRAM
     swapon /dev/block/zram0
     write /sys/block/zram0/disksize 1256666666
-    write /sys/block/zram0/comp_algorithm lz4
-    write /sys/block/zram0/max_comp_streams 8
