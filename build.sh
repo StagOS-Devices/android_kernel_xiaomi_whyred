@@ -19,7 +19,7 @@ KERNEL_DIR=$PWD
 REPACK_DIR=$KERNEL_DIR/zip
 OUT=$KERNEL_DIR/out
 ZIP_NAME="$VERSION"-"$DATE"
-VERSION="whyred-2.0-OandP"
+VERSION="whyred-2.1-FW-O"
 DATE=$(date +%Y%m%d-%H%M)
 
 export KBUILD_BUILD_USER=builder
@@ -27,11 +27,11 @@ export KBUILD_BUILD_HOST=ancientdedicated
 export ARCH=arm64
 export SUBARCH=arm64
 export USE_CCACHE=1
-export CLANG_PATH=/root/clang2/bin
+export CLANG_PATH=/root/reza/clang2/bin
 export PATH=${CLANG_PATH}:${PATH}
 export CLANG_TRIPLE=aarch64-linux-gnu-
-export CROSS_COMPILE=/root/toolchain/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-export CLANG_TCHAIN="/root/clang2/bin/clang"
+export CROSS_COMPILE=/root/reza/gcc/bin/aarch64-linux-android-
+export CLANG_TCHAIN="/root/reza/clang2/bin/clang"
 export KBUILD_COMPILER_STRING="$(${CLANG_TCHAIN} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 
 make_zip()
