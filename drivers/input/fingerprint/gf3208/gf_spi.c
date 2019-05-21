@@ -909,7 +909,7 @@ static int gf_remove(struct platform_device *pdev)
 #endif
 {
 	struct gf_dev *gf_dev = &gf;
-	struct input_dev *input_dev;
+	
 	if (gf_dev->input_dev != NULL)
 	input_free_device(gf_dev->input_dev);
 

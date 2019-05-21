@@ -539,6 +539,29 @@ asmlinkage __visible void __init start_kernel(void)
 	page_alloc_init();
 
 	pr_notice("Kernel command line: %s\n", boot_command_line);
+	p = NULL;
+	p = strstr(boot_command_line, "androidboot.fpsensor=fpc");
+	if (p) {
+		fpsensor = 1;
+	} else {
+		fpsensor = 2;
+	}
+
+	p = NULL;
+	p = strstr(boot_command_line, "androidboot.mode=charger");
+	if (p) {
+		is_poweroff_charge = true;
+	}
+
+	p = NULL;
+	p = strstr(boot_command_line, "force_warm_Reset");
+	if (p) {
+		force_warm_reset = 1;
+	} else {
+		force_warm_reset = 0;
+	}
+
+
 	/* parameters may set static keys */
 	jump_label_init();
 	parse_early_param();
@@ -866,11 +889,8 @@ static void __init do_initcalls(void)
 {
 	int level;
 
-	for (level = 0; level < ARRAY_SIZE(initcall_levels) - 1; level++) {
+	for (level = 0; level < ARRAY_SIZE(initcall_levels) - 1; level++)
 		do_initcall_level(level);
-		/* need to finish all async calls before going into next level */
-		async_synchronize_full();
-	}
 }
 
 /*
