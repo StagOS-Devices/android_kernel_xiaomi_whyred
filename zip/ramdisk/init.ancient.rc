@@ -1,0 +1,34 @@
+# Kernel tweaks and parameters
+# Copyright (C) 2018 Franco
+# Copyright (C) 2018 SkyArk
+# Copyright (C) 2018 Ancient
+
+import /init.performance_profiles.rc
+
+on property:sys.boot_completed=1
+    # Declare support for Franco Kernel Manager Performance Profiles
+    setprop fku.profiles 1
+    setprop pm.sleep_mode 1
+
+on post-fs-data
+
+    # Set ZRAM parameters and let qcom-post-boot handle the rest
+    setprop ro.vendor.qti.config.zram true
+    write /proc/sys/vm/page-cluster 0
+
+on property:init.svc.qcom-post-boot=stopped
+
+    # Tune Display
+    exec - system system -- /system/bin/sleep 10
+    write /sys/devices/platform/kcal_ctrl.0/kcal "236 236 236"
+    write /sys/devices/platform/kcal_ctrl.0/kcal_sat 258
+    write /sys/devices/platform/kcal_ctrl.0/kcal_enable 1
+
+on property:sys.boot_completed=1
+
+    # Switch to DEADLINE I/O scheduler
+    setprop sys.io.scheduler deadline
+    
+    # ZRAM
+    swapon /dev/block/zram0
+    write /sys/block/zram0/disksize 1256666666
