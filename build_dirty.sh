@@ -31,6 +31,7 @@ export CLANG_PATH=/root/reza/clang2/bin
 export PATH=${CLANG_PATH}:${PATH}
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export CROSS_COMPILE=/root/reza/gcc/bin/aarch64-linux-android-
+export CROSS_COMPILE_ARM32=/root/reza/gcc2/bin/arm-linux-androideabi-
 export CLANG_TCHAIN="/root/reza/clang2/bin/clang"
 export KBUILD_COMPILER_STRING="$(${CLANG_TCHAIN} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')"
 
