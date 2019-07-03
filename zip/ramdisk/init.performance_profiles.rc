@@ -9,8 +9,8 @@ on property:fku.perf.profile=0
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1401000
     write /sys/class/kgsl/kgsl-3d0/max_gpuclk 370000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor powersave
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor schedutil
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:0"
     write /sys/module/cpu_boost/parameters/input_boost_ms 0
     write /sys/kernel/fast_charge/force_fast_charge 1
@@ -27,8 +27,8 @@ on property:fku.perf.profile=1
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1804000
     write /sys/class/kgsl/kgsl-3d0/max_gpuclk 430000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive   
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor schedutil   
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:633000"
     write /sys/module/cpu_boost/parameters/input_boost_ms 100
     write /sys/kernel/fast_charge/force_fast_charge 1
@@ -45,8 +45,8 @@ on property:fku.perf.profile=2
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1804000
     write /sys/class/kgsl/kgsl-3d0/max_gpuclk 430000000
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor performance
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor performance 
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor blu_active
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor blu_active 
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:1401000"
     write /sys/module/cpu_boost/parameters/input_boost_ms 1000   
     write /sys/kernel/fast_charge/force_fast_charge 1
