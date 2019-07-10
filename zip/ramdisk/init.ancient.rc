@@ -26,8 +26,8 @@ on property:init.svc.qcom-post-boot=stopped
 
 on property:sys.boot_completed=1
 
-    # Switch to DEADLINE I/O scheduler
-    setprop sys.io.scheduler deadline
+    # Switch to CFQ I/O scheduler
+    setprop sys.io.scheduler cfq
     
     # ZRAM
     swapon /dev/block/zram0
