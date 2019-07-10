@@ -19,7 +19,7 @@ KERNEL_DIR=$PWD
 REPACK_DIR=$KERNEL_DIR/zip
 OUT=$KERNEL_DIR/out
 ZIP_NAME="$VERSION"-"$DATE"
-VERSION="whyred-2.4-FW-O"
+VERSION="whyred-2.8-FW-O"
 DATE=$(date +%Y%m%d-%H%M)
 
 export KBUILD_BUILD_USER=builder
@@ -44,7 +44,7 @@ make_zip()
                 # rm $KERNEL_DIR/out/arch/arm64/boot/dts/qcom/modules.order
                 # cp $KERNEL_DIR/out/arch/arm64/boot/dts/qcom/sd* $REPACK_DIR/dtbs/
                 cp $KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb $REPACK_DIR/
-		FINAL_ZIP="Ancient-${VERSION}-${DATE}.zip"
+		FINAL_ZIP="Ancient-EAS-${VERSION}-${DATE}.zip"
         zip -r9 "${FINAL_ZIP}" *
 		cp *.zip $OUT
 		rm *.zip
